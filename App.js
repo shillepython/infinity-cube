@@ -133,16 +133,100 @@ export default function App() {
 }
 
 const apiSend = (url) => {
-    fetch(url)
-        .then(response => {
-            //handle response
-            console.log(response);
-        })
-        .then(data => {
-            //handle data
-            console.log(data);
-        })
-        .catch(error => {
-            //handle error
+    const array = {
+        0: [
+            {
+                0: [rand(), rand(), rand()],
+                1: [rand(), rand(), rand()],
+                2: [rand(), rand(), rand()],
+                3: [rand(), rand(), rand()],
+                4: [rand(), rand(), rand()],
+                5: [rand(), rand(), rand()],
+                6: [rand(), rand(), rand()],
+                7: [rand(), rand(), rand()],
+                8: [rand(), rand(), rand()],
+                9: [rand(), rand(), rand()]
+            },
+            200
+        ],
+        1: [
+            {
+                0: [rand(), rand(), rand()],
+                1: [rand(), rand(), rand()],
+                2: [rand(), rand(), rand()],
+                3: [rand(), rand(), rand()],
+                4: [rand(), rand(), rand()],
+                5: [rand(), rand(), rand()],
+                6: [rand(), rand(), rand()],
+                7: [rand(), rand(), rand()],
+                8: [rand(), rand(), rand()],
+                9: [rand(), rand(), rand()]
+            },
+            300
+        ],
+        2: [
+            {
+                0: [rand(), rand(), rand()],
+                1: [rand(), rand(), rand()],
+                2: [rand(), rand(), rand()],
+                3: [rand(), rand(), rand()],
+                4: [rand(), rand(), rand()],
+                5: [rand(), rand(), rand()],
+                6: [rand(), rand(), rand()],
+                7: [rand(), rand(), rand()],
+                8: [rand(), rand(), rand()],
+                9: [rand(), rand(), rand()]
+            },
+            400
+        ],
+        3: [
+            {
+                0: [rand(), rand(), rand()],
+                1: [rand(), rand(), rand()],
+                2: [rand(), rand(), rand()],
+                3: [rand(), rand(), rand()],
+                4: [rand(), rand(), rand()],
+                5: [rand(), rand(), rand()],
+                6: [rand(), rand(), rand()],
+                7: [rand(), rand(), rand()],
+                8: [rand(), rand(), rand()],
+                9: [rand(), rand(), rand()]
+            },
+            400
+        ],
+        4: [
+            {
+                0: [rand(), rand(), rand()],
+                1: [rand(), rand(), rand()],
+                2: [rand(), rand(), rand()],
+                3: [rand(), rand(), rand()],
+                4: [rand(), rand(), rand()],
+                5: [rand(), rand(), rand()],
+                6: [rand(), rand(), rand()],
+                7: [rand(), rand(), rand()],
+                8: [rand(), rand(), rand()],
+                9: [rand(), rand(), rand()]
+            },
+            400
+        ],
+    }
+
+
+    (async () => {
+        const rawResponse = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(array)
         });
+        const content = await rawResponse.json();
+      
+        console.log(content);
+      })()
+}
+
+const rand = () => {
+ return Math.floor(Math.random() * 255)
 }
