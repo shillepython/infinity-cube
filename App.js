@@ -1,20 +1,148 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import {NativeBaseProvider, Box, Card, Divider, Text, Container, HStack, VStack, ScrollView, Button, Center} from "native-base";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    return (
+        <NativeBaseProvider>
+            <ScrollView bg="muted.800" w={["auto", "auto"]} h="80">
+                <Box border="1" borderRadius="md" pt="16" px="5">
+                    <VStack space="0" bg="indigo.500" borderRadius="md" divider={<Divider />}>
+                        <Box py="2" bg="indigo.700" borderRadius="md" borderBottomRightRadius="none" borderBottomLeftRadius="none">
+                            <Center>
+                                <Text fontWeight="bold" color="white">
+                                    Start strip led
+                                </Text>
+                            </Center>
+                        </Box>
+                        <Box p="5">
+                            <Text fontWeight="bold" color="white">
+                                NativeBase is a free and open source framework that enable developers
+                                to build high-quality mobile apps using React Native iOS and Android
+                                apps with a fusion of ES6.
+                            </Text>
+                        </Box>
+                        <Button onPress={() => { apiSend('http://localhost/api/start') }} activeStyle="none" bg="indigo.900" borderRadius="none" borderBottomRightRadius="md" borderBottomLeftRadius="md">
+                            <Text fontWeight="bold" color="white">
+                                Start
+                            </Text>
+                        </Button>
+                    </VStack>
+                </Box>
+
+                <Box border="1" borderRadius="md" pt="5" px="5">
+                    <VStack space="0" bg="indigo.500" borderRadius="md" divider={<Divider />}>
+                        <Box py="2" bg="indigo.700" borderRadius="md" borderBottomRightRadius="none" borderBottomLeftRadius="none">
+                            <Center>
+                                <Text fontWeight="bold" color="white">
+                                    Stop strip led
+                                </Text>
+                            </Center>
+                        </Box>
+                        <Box p="5">
+                            <Text fontWeight="bold" color="white">
+                                NativeBase is a free and open source framework that enable developers
+                                to build high-quality mobile apps using React Native iOS and Android
+                                apps with a fusion of ES6.
+                            </Text>
+                        </Box>
+                        <Button  onPress={() => { apiSend('http://localhost/api/stop') }} activeStyle="none" bg="indigo.900" borderRadius="none" borderBottomRightRadius="md" borderBottomLeftRadius="md">
+                            <Text fontWeight="bold" color="white">
+                                Stop
+                            </Text>
+                        </Button>
+                    </VStack>
+                </Box>
+
+                <Box border="1" borderRadius="md" pt="5" px="5">
+                    <VStack space="0" bg="indigo.500" borderRadius="md" divider={<Divider />}>
+                        <Box py="2" bg="indigo.700" borderRadius="md" borderBottomRightRadius="none" borderBottomLeftRadius="none">
+                            <Center>
+                                <Text fontWeight="bold" color="white">
+                                    Start strip led
+                                </Text>
+                            </Center>
+                        </Box>
+                        <Box p="5">
+                            <Text fontWeight="bold" color="white">
+                                NativeBase is a free and open source framework that enable developers
+                                to build high-quality mobile apps using React Native iOS and Android
+                                apps with a fusion of ES6.
+                            </Text>
+                        </Box>
+                        <Button onPress={() => { console.log('Hello word')}} activeStyle="none" bg="indigo.900" borderRadius="none" borderBottomRightRadius="md" borderBottomLeftRadius="md">
+                            <Text fontWeight="bold" color="white">
+                                Start
+                            </Text>
+                        </Button>
+                    </VStack>
+                </Box>
+
+                <Box border="1" borderRadius="md" pt="5" px="5">
+                    <VStack space="0" bg="indigo.500" borderRadius="md" divider={<Divider />}>
+                        <Box py="2" bg="indigo.700" borderRadius="md" borderBottomRightRadius="none" borderBottomLeftRadius="none">
+                            <Center>
+                                <Text fontWeight="bold" color="white">
+                                    Start strip led
+                                </Text>
+                            </Center>
+                        </Box>
+                        <Box p="5">
+                            <Text fontWeight="bold" color="white">
+                                NativeBase is a free and open source framework that enable developers
+                                to build high-quality mobile apps using React Native iOS and Android
+                                apps with a fusion of ES6.
+                            </Text>
+                        </Box>
+                        <Button onPress={() => { console.log('Hello word')}} activeStyle="none" bg="indigo.900" borderRadius="none" borderBottomRightRadius="md" borderBottomLeftRadius="md">
+                            <Text fontWeight="bold" color="white">
+                                Start
+                            </Text>
+                        </Button>
+                    </VStack>
+                </Box>
+
+                <Box border="1" borderRadius="md" pt="5" px="5" pb="10">
+                    <VStack space="0" bg="indigo.500" borderRadius="md" divider={<Divider />}>
+                        <Box py="2" bg="indigo.700" borderRadius="md" borderBottomRightRadius="none" borderBottomLeftRadius="none">
+                            <Center>
+                                <Text fontWeight="bold" color="white">
+                                    Start strip led
+                                </Text>
+                            </Center>
+                        </Box>
+                        <Box p="5">
+                            <Text fontWeight="bold" color="white">
+                                NativeBase is a free and open source framework that enable developers
+                                to build high-quality mobile apps using React Native iOS and Android
+                                apps with a fusion of ES6.
+                            </Text>
+                        </Box>
+                        <Button onPress={() => { console.log('Hello word')}} activeStyle="none" bg="indigo.900" borderRadius="none" borderBottomRightRadius="md" borderBottomLeftRadius="md">
+                            <Text fontWeight="bold" color="white">
+                                Start
+                            </Text>
+                        </Button>
+                    </VStack>
+                </Box>
+
+            </ScrollView>
+
+
+        </NativeBaseProvider>
+    );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const apiSend = (url) => {
+    fetch(url)
+        .then(response => {
+            //handle response
+            console.log(response);
+        })
+        .then(data => {
+            //handle data
+            console.log(data);
+        })
+        .catch(error => {
+            //handle error
+        });
+}
